@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:b="http://bootsfaces.net/ui">
+    <h:head>
+        <title>Exercicíos</title>
+        <link rel="shortcut icon" href="resources/img/Exer.png"/>
+        <link rel="StyleSheet" type="text/css" href="resources/css/estilos.css" media="screen" />
+    </h:head>
+    <h:body>
+        <div id="div1Cachorro">
+            <b:form>
+                <b:button iconAwesome="reply" icon-size="lg" value="Voltar" class="btn btn-lg" title="Voltar ao Menu" look="danger" 
+                          href="/ExerciciosJSF/index.xhtml" style="margin-right: 18px;"/>
+            </b:form>
+        </div>
+        <div style=" width: 100%; padding: 20px;">
+            <b:panel title="Cadastar Iguana" collapsible="false" look="info" iconAwesome="list-alt" icon-size="lg">
+                <b:form>
+                    <b:inputText label="Nome" placeholder="Ex: Igui" type="text" tiny-screen="one-third" value="#{iguanaBean.nome}"
+                                 required="true" requiredMessage="O campo 'Nome' é de preenchimento obrigatório."/>
+                    <b:inputText label="Raça" placeholder="..." type="text" tiny-screen="one-third" value="#{iguanaBean.raca}"
+                                 required="true" requiredMessage="O campo 'Raça' é de preenchimento obrigatório."
+                                 typeahead="true"/>
+                    <b:inputText label="Idade" type="number" tiny-screen="one-fourth" value="#{iguanaBean.idade}"/>
+                    <b:commandButton iconAwesome="plus-circle" icon-size="lg" value="Incluir" class="btn btn-lg" 
+                                     title="Incluir" look="success" style="margin-top: 15px" action="#{iguanaBean.addIguana()}"/> 
+                </b:form>
+            </b:panel>
+        </div>
+    </h:body>
+</html>
+

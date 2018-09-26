@@ -1,0 +1,39 @@
+/* 
+    Created on : 22/09/2018, 17:06:44
+    Author     : Winder Rezende <windergt@gmail.com>
+*/
+
+html,body,div {
+    margin: 0px;
+    padding: 0px;
+}
+
+#div1{
+    width: 100%; 
+    height: auto;
+    background-color: #036;
+    font-size:18px;
+    color: #FFF; 
+    margin-top: 0px;
+    text-align: center;
+    padding: 5px;
+}
+
+#painelEx{
+   margin-top: 10px;
+   margin-left: auto;
+   margin-right: auto;
+   width: 30%; 
+}
+
+#div1Cachorro{
+    width: 100%; 
+    height: auto;
+    background-color: #036;
+    font-size:18px;
+    color: #FFF; 
+    margin-top: 0px;
+    text-align: right;
+    padding: 5px;
+}
+

@@ -21,19 +21,21 @@
                     <b:row style="padding: 15px">
                         <b:dataTable customLangUrl="//cdn.datatables.net/plug-ins/1.10.12/i18n/Portuguese-Brasil.json" 
                                      class="table table-striped table-bordered" 
-                                     value = "#{iguanaBean.iguana}"
+                                     value = "#{cobraBean.cobra}"
                                      var="lista"
                                      style=" margin-left: auto; margin-right: auto; width: 100%; position: relative;"
                                      responsive="true">
 
                             <b:dataTableColumn value="#{lista.nome}" label="Nome"/>
-                            <b:dataTableColumn value="#{lista.idade}" label="Idade"/>
+                            <b:dataTableColumn value="#{lista.dtCaptura}" label="Data Captura"/>
+                            <b:dataTableColumn value="#{lista.tamanho}" label="Tamanho"/>
+                            <b:dataTableColumn value="#{lista.peso}" label="Peso"/>
                             <b:dataTableColumn label="Opções" style="width: 170px">
                                 <h:panelGrid style="width: 170px; margin-left: auto; margin-right: auto" columns="2">
                                     <b:commandButton iconAwesome="trash-o" value="Remover" size="sm" class="btn btn-lg"
-                                                     title="Remover Item" look="danger"  action="#{iguanaBean.removeCadastrado(lista)}" />
+                                                     title="Remover Item" look="danger"  action="#{cobraBean.removeCadastrado(lista)}" />
                                     <b:commandButton iconAwesome="edit" value="Editar" size="sm" class="btn btn-lg"
-                                                     title="Editar Item" look="info"  action="#{iguanaBean.editarCadadatarado(lista)}" />
+                                                     title="Editar Item" look="info"  action="#{cobraBean.editarCadadatarado(lista)}" />
                                 </h:panelGrid>
                             </b:dataTableColumn>
                         </b:dataTable>

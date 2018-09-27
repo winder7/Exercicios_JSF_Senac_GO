@@ -20,9 +20,6 @@
                 <b:form>
                     <b:inputText label="Nome" placeholder="Ex: Igui" type="text" tiny-screen="one-third" value="#{iguanaBean.nome}"
                                  required="true" requiredMessage="O campo 'Nome' é de preenchimento obrigatório."/>
-                    <b:inputText label="Raça" placeholder="..." type="text" tiny-screen="one-third" value="#{iguanaBean.raca}"
-                                 required="true" requiredMessage="O campo 'Raça' é de preenchimento obrigatório."
-                                 typeahead="true"/>
                     <b:inputText label="Idade" type="number" tiny-screen="one-fourth" value="#{iguanaBean.idade}"/>
                     <b:commandButton iconAwesome="plus-circle" icon-size="lg" value="Incluir" class="btn btn-lg" 
                                      title="Incluir" look="success" style="margin-top: 15px" action="#{iguanaBean.addIguana()}"/> 

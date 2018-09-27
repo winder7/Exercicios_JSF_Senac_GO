@@ -16,13 +16,19 @@
             </b:form>
         </div>
         <div style=" width: 100%; padding: 20px;">
-            <b:panel title="Cadastar Iguana" collapsible="false" look="info" iconAwesome="list-alt" icon-size="lg">
+            <b:panel title="Cadastar Cobra" collapsible="false" look="info" iconAwesome="list-alt" icon-size="lg">
                 <b:form>
-                    <b:inputText label="Nome" placeholder="Ex: Igui" type="text" tiny-screen="one-third" value="#{iguanaBean.nome}"
+                    <b:inputText label="Nome" placeholder="Ex: Snake" type="text"  value="#{cobraBean.nome}" style="width: 260px"
                                  required="true" requiredMessage="O campo 'Nome' é de preenchimento obrigatório."/>
-                    <b:inputText label="Idade" type="number" tiny-screen="one-fourth" value="#{iguanaBean.idade}"/>
+                    <b:inputText label="Data de Captura" type="date"  value="#{cobraBean.dtCaptura}" style="width: 260px"
+                                 required="true" requiredMessage="O campo 'Data de Captura' é de preenchimento obrigatório."/>
+                    
+                    <b:inputText label="Tamanho" type="number"  value="#{cobraBean.tamanho}" style="width: 260px"
+                                 required="true" requiredMessage="O campo 'Tamanho' é de preenchimento obrigatório."/>
+                    <b:inputText label="Peso" type="number" mask="decimal" value="#{cobraBean.peso}" style="width: 260px"
+                                 required="true" requiredMessage="O campo 'Peso' é de preenchimento obrigatório."/>
                     <b:commandButton iconAwesome="plus-circle" icon-size="lg" value="Incluir" class="btn btn-lg" 
-                                     title="Incluir" look="success" style="margin-top: 15px" action="#{iguanaBean.addIguana()}"/> 
+                                     title="Incluir" look="success" style="margin-top: 15px" action="#{cobraBean.add()}"/> 
                 </b:form>
             </b:panel>
         </div>

@@ -13,24 +13,21 @@ import javax.faces.bean.SessionScoped;
 @SessionScoped
 public class IguanaBean {
     private String nome;
-    private String raca;
     private int idade;
     private List<IguanaBean> iguana = new ArrayList<>();
     
     public IguanaBean(){
     }
 
-    public IguanaBean(String nome, String raca, int idade) {
+    public IguanaBean(String nome, int idade) {
         this.nome = nome;
-        this.raca = raca;
         this.idade = idade;
     }
 
     public String addIguana(){
-        IguanaBean novo = new IguanaBean(this.nome, this.raca, this.idade);
+        IguanaBean novo = new IguanaBean(this.nome, this.idade);
         iguana.add(novo);
         nome = "";
-        raca = "";
         idade = 0;
         return "iguanalista";
     }
@@ -41,7 +38,6 @@ public class IguanaBean {
     
     public String editarCadadatarado(IguanaBean c){
         nome = c.getNome();
-        raca = c.getRaca();
         idade = c.getIdade();
         iguana.remove(c);
         return "iguanacad";
@@ -55,14 +51,6 @@ public class IguanaBean {
 
     public void setNome(String nome) {
         this.nome = nome;
-    }
-
-    public String getRaca() {
-        return raca;
-    }
-
-    public void setRaca(String raca) {
-        this.raca = raca;
     }
 
     public int getIdade() {

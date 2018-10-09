@@ -54,7 +54,7 @@ public class Computador {
                     }
                 }
             }
-            System.out.println("Jogada 1 Computador: " + AutoJoga);
+            //System.out.println("Jogada 1 Computador: " + AutoJoga);
         } else if (Rodada == 3) {
             String[] JogHumanoPredf = Dados.JogHumanoPreR3();
             int[] JogCompPredf = Dados.JogCompPreR3();
@@ -68,8 +68,8 @@ public class Computador {
             if (AutoJoga == 0) {
                 Rodada = 8;
             }
-            System.out.println("Jogada 2 Computador : " + AutoJoga);
-            System.out.println("Sequência de Jogadas Humano: " + SequenJogHumano);
+            //System.out.println("Jogada 2 Computador : " + AutoJoga);
+            //System.out.println("Sequência de Jogadas Humano: " + SequenJogHumano);
         } else if (Rodada == 5) {
             String[] JogHumanoPredf = Dados.JogHumanoPreR5();
             int[] JogCompPredf = Dados.JogCompPreR5();
@@ -83,8 +83,8 @@ public class Computador {
             if (AutoJoga == 0) {
                 Rodada = 8;
             }
-            System.out.println("Jogada 3 Computador: " + AutoJoga);
-            System.out.println("Sequência de Jogadas Humano: " + SequenJogHumano);
+            //System.out.println("Jogada 3 Computador: " + AutoJoga);
+            //System.out.println("Sequência de Jogadas Humano: " + SequenJogHumano);
         } else if (Rodada == 7 && Modo != 3) {
             String[] JogHumanoPredf = Dados.JogHumanoPreR7();
             int[] JogCompPredf = Dados.JogCompPreR7();
@@ -98,8 +98,8 @@ public class Computador {
             if (AutoJoga == 0) {
                 Rodada = 8;
             }
-            System.out.println("Jogada 4 Computador: " + AutoJoga);
-            System.out.println("Sequência de Jogadas Humano: " + SequenJogHumano);
+            //System.out.println("Jogada 4 Computador: " + AutoJoga);
+            //System.out.println("Sequência de Jogadas Humano: " + SequenJogHumano);
         } else if (Rodada == 7 && Modo == 3) {
             Rodada = 8;
         } else if (Rodada > 7) {
@@ -107,10 +107,11 @@ public class Computador {
                 AutoJoga = radom.nextInt(9);
             } // Verifica as possições usadas e libera um número aleatório que não foi usado
 
-            System.out.println("Número Aleatório: " + AutoJoga); // Log número gerado
-            System.out.println("Tabela2:" + Arrays.toString(Tabela2)); //Log do Vetor
+            //System.out.println("Número Aleatório: " + AutoJoga); // Log número gerado
+            //System.out.println("Tabela2:" + Arrays.toString(Tabela2)); //Log do Vetor
         }
         System.out.println("Rodada: " + Rodada);
+
         return AutoJoga;
     }
 }

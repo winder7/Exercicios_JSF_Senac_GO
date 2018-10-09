@@ -131,7 +131,8 @@ public class Jogada {
             MarcaJogador = "O";
             InfoJogada = "Vez de X";
         }
-        System.out.println("Tabela: "+Arrays.toString(Tabela));
+        //System.out.println("Tabela: "+Arrays.toString(Tabela));
+        System.out.println("Rodada++ :" + Rodada);
         Rodada++;
     }
 
@@ -160,5 +161,7 @@ public class Jogada {
         else{
             Rodada = 0;
         }
+        
+        System.out.println("Rodada :" + Rodada);
     }
 }

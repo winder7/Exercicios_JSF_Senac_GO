@@ -1,7 +1,10 @@
 package Cobra;
 
 import Gato.*;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
@@ -30,7 +33,7 @@ public class CobraBean {
     }
 
     public String add(){
-        CobraBean novo = new CobraBean(this.nome, this.dtCaptura, this.tamanho, this.peso);
+        CobraBean novo = new CobraBean(this.nome, FormtarData(this.dtCaptura, "yyyy-MM-dd", "dd/MM/yyyy"), this.tamanho, this.peso);
         cobra.add(novo);
         nome = "";
         dtCaptura = "";
@@ -45,11 +48,22 @@ public class CobraBean {
     
     public String editarCadadatarado(CobraBean c){
         nome = c.getNome();
-        dtCaptura = c.getDtCaptura();
+        dtCaptura = FormtarData(c.getDtCaptura(), "dd/MM/yyyy", "yyyy-MM-dd");
         tamanho = c.getTamanho();
         peso = c.getPeso();
         cobra.remove(c);
         return "cobracad";
+    }
+    
+    public String FormtarData(String data, String formatoEntrada, String formatoSaida) {
+        String dataForm = "";
+        try {
+            Date date = new SimpleDateFormat(formatoEntrada).parse(data);
+            dataForm = new SimpleDateFormat(formatoSaida).format(date);
+        } catch (ParseException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return dataForm;
     }
     
     //Getters e Setters

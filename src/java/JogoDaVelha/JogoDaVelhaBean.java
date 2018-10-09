@@ -1,19 +1,14 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package JogoDaVelha;
 
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
+import javax.faces.bean.ViewScoped;
 
 /**
  * @Autor Winder Rezende
  * @Data 23/09/2018, 22:45:47
  */
 @ManagedBean
-@SessionScoped
+@ViewScoped
 public class JogoDaVelhaBean {
 
     private String tempo;
@@ -86,7 +81,8 @@ public class JogoDaVelhaBean {
         }.start();
     }
 
-    public String actBotao1() {
+    public void actBotao1() {
+        System.out.println("Btn1");
         if (botao1.equals("") && Vencedor.QuemVenceu == 0) {
             botao.setBotao(1);
             Jogada.Botoes();
@@ -102,10 +98,10 @@ public class JogoDaVelhaBean {
             }
             MarcarVencedor();
         }
-        return "jogodavelha";
     }
 
-    public String actBotao2() {
+    public void actBotao2() {
+        System.out.println("Btn2");
         if (botao2.equals("") && Vencedor.QuemVenceu == 0) {
             botao.setBotao(2);
             Jogada.Botoes();
@@ -121,10 +117,10 @@ public class JogoDaVelhaBean {
             }
             MarcarVencedor();
         }
-        return "jogodavelha";
     }
 
-    public String actBotao3() {
+    public void actBotao3() {
+        System.out.println("Btn3");
         if (botao3.equals("") && Vencedor.QuemVenceu == 0) {
             botao.setBotao(3);
             Jogada.Botoes();
@@ -140,10 +136,10 @@ public class JogoDaVelhaBean {
             }
             MarcarVencedor();
         }
-        return "jogodavelha";
     }
 
-    public String actBotao4() {
+    public void actBotao4() {
+        System.out.println("Btn4");
         if (botao4.equals("") && Vencedor.QuemVenceu == 0) {
             botao.setBotao(4);
             Jogada.Botoes();
@@ -159,10 +155,10 @@ public class JogoDaVelhaBean {
             }
             MarcarVencedor();
         }
-        return "jogodavelha";
     }
 
-    public String actBotao5() {
+    public void actBotao5() {
+        System.out.println("Btn5");
         if (botao5.equals("") && Vencedor.QuemVenceu == 0) {
             botao.setBotao(5);
             Jogada.Botoes();
@@ -178,10 +174,10 @@ public class JogoDaVelhaBean {
             }
             MarcarVencedor();
         }
-        return "jogodavelha";
     }
 
-    public String actBotao6() {
+    public void actBotao6() {
+        System.out.println("Btn6");
         if (botao6.equals("") && Vencedor.QuemVenceu == 0) {
             botao.setBotao(6);
             Jogada.Botoes();
@@ -197,10 +193,10 @@ public class JogoDaVelhaBean {
             }
             MarcarVencedor();
         }
-        return "jogodavelha";
     }
 
-    public String actBotao7() {
+    public void actBotao7() {
+        System.out.println("Btn7");
         if (botao7.equals("") && Vencedor.QuemVenceu == 0) {
             botao.setBotao(7);
             Jogada.Botoes();
@@ -216,10 +212,10 @@ public class JogoDaVelhaBean {
             }
             MarcarVencedor();
         }
-        return "jogodavelha";
     }
 
-    public String actBotao8() {
+    public void actBotao8() {
+        System.out.println("Btn8");
         if (botao8.equals("") && Vencedor.QuemVenceu == 0) {
             botao.setBotao(8);
             Jogada.Botoes();
@@ -235,10 +231,10 @@ public class JogoDaVelhaBean {
             }
             MarcarVencedor();
         }
-        return "jogodavelha";
     }
 
-    public String actBotao9() {
+    public void actBotao9() {
+        System.out.println("Btn9");
         if (botao9.equals("") && Vencedor.QuemVenceu == 0) {
             botao.setBotao(9);
             Jogada.Botoes();
@@ -254,10 +250,9 @@ public class JogoDaVelhaBean {
             }
             MarcarVencedor();
         }
-        return "jogodavelha";
     }
 
-    public String actBotaoReiniciar() {
+    public void actBotaoReiniciar() {
         botao1 = "";
         botao2 = "";
         botao3 = "";
@@ -280,10 +275,9 @@ public class JogoDaVelhaBean {
         btn9 = true;
         btnModo = true;
         Jogada.Reiniciar();
-        return "jogodavelha";
     }
 
-    public String actBotaoSelJogador() {
+    public void actBotaoSelJogador() {
         Jogada.SelJogador();
         botaoSelJogador = Jogada.SelJogador();
         actBotaoReiniciar();
@@ -292,28 +286,24 @@ public class JogoDaVelhaBean {
         } else {
             btnModo = true;
         }
-        return "jogodavelha";
     }
 
-    public String actBotaoModo() {
+    public void actBotaoModo() {
         Computador.ModoDeJogo();
         botaoModo = Computador.InfoModo;
-        return "jogodavelha";
     }
 
-    public String actBotaoZerarPlacar() {
+    public void actBotaoZerarPlacar() {
         Vencedor.PlacarX = 0;
         Vencedor.PlacarO = 0;
         Vencedor.Empates = 0;
         campoPlacarX = "0";
         campoPlacarO = "0";
         campoEmpates = "0";
-        return "jogodavelha";
     }
 
     public void JogadaComputador() {
-        System.out.println("Computador:" + Computador.JogadaPC());
-
+        //System.out.println("Computador:" + Computador.JogadaPC());
         if (Vencedor.QuemVenceu == 0) {
             switch (Computador.JogadaPC()) {
                 case 1:
@@ -427,7 +417,6 @@ public class JogoDaVelhaBean {
                     break;
             }
         }
-
     }
 
     public void MarcarVencedor() {
@@ -509,14 +498,6 @@ public class JogoDaVelhaBean {
         this.tempo = tempo;
     }
 
-    public boolean isIniciaTempo() {
-        return iniciaTempo;
-    }
-
-    public void setIniciaTempo(boolean iniciaTempo) {
-        this.iniciaTempo = iniciaTempo;
-    }
-
     public String getBotao1() {
         return botao1;
     }
@@ -589,35 +570,67 @@ public class JogoDaVelhaBean {
         this.botao9 = botao9;
     }
 
-    public String getcampoInfoJogada() {
+    public String getBotaoModo() {
+        return botaoModo;
+    }
+
+    public void setBotaoModo(String botaoModo) {
+        this.botaoModo = botaoModo;
+    }
+
+    public String getBotaoSelJogador() {
+        return botaoSelJogador;
+    }
+
+    public void setBotaoSelJogador(String botaoSelJogador) {
+        this.botaoSelJogador = botaoSelJogador;
+    }
+
+    public boolean isIniciaTempo() {
+        return iniciaTempo;
+    }
+
+    public void setIniciaTempo(boolean iniciaTempo) {
+        this.iniciaTempo = iniciaTempo;
+    }
+
+    public String getCampoInfoJogada() {
         return campoInfoJogada;
     }
 
-    public void setcampoInfoJogada(String campoInfoJogada) {
+    public void setCampoInfoJogada(String campoInfoJogada) {
         this.campoInfoJogada = campoInfoJogada;
     }
 
-    public String getcampoMsgFinal() {
+    public String getCampoMsgFinal() {
         return campoMsgFinal;
     }
 
-    public void setcampoMsgFinal(String campoMsgFinal) {
+    public void setCampoMsgFinal(String campoMsgFinal) {
         this.campoMsgFinal = campoMsgFinal;
     }
 
-    public String getcampoPlacarO() {
+    public String getCampoPlacarO() {
         return campoPlacarO;
     }
 
-    public void setcampoPlacarO(String campoPlacarO) {
+    public void setCampoPlacarO(String campoPlacarO) {
         this.campoPlacarO = campoPlacarO;
     }
 
-    public String getcampoEmpates() {
+    public String getCampoPlacarX() {
+        return campoPlacarX;
+    }
+
+    public void setCampoPlacarX(String campoPlacarX) {
+        this.campoPlacarX = campoPlacarX;
+    }
+
+    public String getCampoEmpates() {
         return campoEmpates;
     }
 
-    public void setcampoEmpates(String campoEmpates) {
+    public void setCampoEmpates(String campoEmpates) {
         this.campoEmpates = campoEmpates;
     }
 
@@ -693,46 +706,6 @@ public class JogoDaVelhaBean {
         this.btn9 = btn9;
     }
 
-    public String getBotaoModo() {
-        return botaoModo;
-    }
-
-    public void setBotaoModo(String botaoModo) {
-        this.botaoModo = botaoModo;
-    }
-
-    public String getCampoInfoJogada() {
-        return campoInfoJogada;
-    }
-
-    public void setCampoInfoJogada(String campoInfoJogada) {
-        this.campoInfoJogada = campoInfoJogada;
-    }
-
-    public String getCampoMsgFinal() {
-        return campoMsgFinal;
-    }
-
-    public void setCampoMsgFinal(String campoMsgFinal) {
-        this.campoMsgFinal = campoMsgFinal;
-    }
-
-    public String getCampoPlacarO() {
-        return campoPlacarO;
-    }
-
-    public void setCampoPlacarO(String campoPlacarO) {
-        this.campoPlacarO = campoPlacarO;
-    }
-
-    public String getCampoEmpates() {
-        return campoEmpates;
-    }
-
-    public void setCampoEmpates(String campoEmpates) {
-        this.campoEmpates = campoEmpates;
-    }
-
     public boolean isBtnModo() {
         return btnModo;
     }
@@ -741,19 +714,11 @@ public class JogoDaVelhaBean {
         this.btnModo = btnModo;
     }
 
-    public String getCampoPlacarX() {
-        return campoPlacarX;
+    public Jogada getBotao() {
+        return botao;
     }
 
-    public void setCampoPlacarX(String campoPlacarX) {
-        this.campoPlacarX = campoPlacarX;
-    }
-
-    public String getBotaoSelJogador() {
-        return botaoSelJogador;
-    }
-
-    public void setBotaoSelJogador(String botaoSelJogador) {
-        this.botaoSelJogador = botaoSelJogador;
+    public void setBotao(Jogada botao) {
+        this.botao = botao;
     }
 }

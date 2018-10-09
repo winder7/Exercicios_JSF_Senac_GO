@@ -1,10 +1,7 @@
 package Cobra;
 
-import Gato.*;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
+import Util.Formatar;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
@@ -33,7 +30,7 @@ public class CobraBean {
     }
 
     public String add(){
-        CobraBean novo = new CobraBean(this.nome, FormtarData(this.dtCaptura, "yyyy-MM-dd", "dd/MM/yyyy"), this.tamanho, this.peso);
+        CobraBean novo = new CobraBean(this.nome, Formatar.Data(this.dtCaptura, "yyyy-MM-dd", "dd/MM/yyyy"), this.tamanho, this.peso);
         cobra.add(novo);
         nome = "";
         dtCaptura = "";
@@ -48,26 +45,14 @@ public class CobraBean {
     
     public String editarCadadatarado(CobraBean c){
         nome = c.getNome();
-        dtCaptura = FormtarData(c.getDtCaptura(), "dd/MM/yyyy", "yyyy-MM-dd");
+        dtCaptura = Formatar.Data(c.getDtCaptura(), "dd/MM/yyyy", "yyyy-MM-dd");
         tamanho = c.getTamanho();
         peso = c.getPeso();
         cobra.remove(c);
         return "cobracad";
     }
     
-    public String FormtarData(String data, String formatoEntrada, String formatoSaida) {
-        String dataForm = "";
-        try {
-            Date date = new SimpleDateFormat(formatoEntrada).parse(data);
-            dataForm = new SimpleDateFormat(formatoSaida).format(date);
-        } catch (ParseException ex) {
-            System.out.println(ex.getMessage());
-        }
-        return dataForm;
-    }
-    
     //Getters e Setters
-
     public String getNome() {
         return nome;
     }

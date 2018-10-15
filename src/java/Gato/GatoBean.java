@@ -1,23 +1,27 @@
 package Gato;
 
+import Persistencia.Arquivo;
 import java.util.ArrayList;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
+import javax.faces.bean.RequestScoped;
 
 /**
  * @Autor Winder Rezende
  * @Data  23/09/2018, 00:06:18
  */
 @ManagedBean
-@SessionScoped
+@RequestScoped
 public class GatoBean {
     private String nome;
     private String raca;
     private int idade;
     private List<GatoBean> gato = new ArrayList<>();
+    Arquivo arquivo;
     
     public GatoBean(){
+        arquivo = new Arquivo("animais.txt");
+        this.Obter();
     }
 
     public GatoBean(String nome, String raca, int idade) {
@@ -32,6 +36,7 @@ public class GatoBean {
         nome = "";
         raca = "";
         idade = 0;
+        Salvar();
     }
     
     public String listarGato(){
@@ -40,6 +45,7 @@ public class GatoBean {
     
     public void removeCadastrado(GatoBean c){
         gato.remove(c);
+        Salvar();
     }
     
     public String editarCadadatarado(GatoBean c){
@@ -47,11 +53,30 @@ public class GatoBean {
         raca = c.getRaca();
         idade = c.getIdade();
         gato.remove(c);
+        Salvar();
         return "gatocad";
     }
     
-    //Getters e Setters
+    private void Obter() {
+        arquivo.Ler("@g;");
+        for (int i = 0; i < Arquivo.Objeto.size(); i++) {
+            String linha = Arquivo.Objeto.get(i);
+            String col[] = linha.split(Arquivo.Separador);
+            GatoBean novo = new GatoBean(col[1], col[2], Integer.parseInt(col[3]));
+            gato.add(novo);
+        }
+    }
 
+    private void Salvar() {
+        for (int i = 0; i < gato.size(); i++) {
+            GatoBean c = gato.get(i);
+            String conteudo = "@g" + Arquivo.Separador + c.getNome() + Arquivo.Separador + c.getRaca() + Arquivo.Separador + c.getIdade();
+            Arquivo.dados.add(conteudo);
+        }
+        arquivo.Salvar();
+    }
+    
+    //Getters e Setters
     public String getNome() {
         return nome;
     }

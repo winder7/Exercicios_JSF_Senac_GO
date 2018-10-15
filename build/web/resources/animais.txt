@@ -1,0 +1,16 @@
+@i;Jurema;1
+@i;Joquebed;3
+@i;Dalila;2
+@cb;Lele;13/10/2018;65;3
+@cb;Marta;12/10/2018;60;3
+@cb;Esmeralda;03/10/2018;29;0.5
+@cb;Cascavel;14/10/2018;80;4
+@c;Tony;Pinscher;3
+@c;Bob;Boxer;1
+@c;Lola;Pitbull;6
+@c;Nina;Pinscher;4
+@c;Mark;Pitbull;0
+@g;Babi;Ragdoll;2
+@g;Mel;Persa;2
+@g;Bartolomeu;Marine Coon;1
+@g;Rajado;Persa;3

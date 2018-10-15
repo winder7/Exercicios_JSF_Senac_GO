@@ -1,25 +1,29 @@
 package Cobra;
 
+import Persistencia.Arquivo;
 import Util.Formatar;
 import java.util.ArrayList;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
+import javax.faces.bean.RequestScoped;
 
 /**
  * @Autor Winder Rezende
  * @Data  23/09/2018, 00:06:18
  */
 @ManagedBean
-@SessionScoped
+@RequestScoped
 public class CobraBean {
     private String nome;
     private String dtCaptura;
     private String tamanho;
     private String peso;
     private List<CobraBean> cobra = new ArrayList<>();
+    Arquivo arquivo;
     
     public CobraBean(){
+        arquivo = new Arquivo("animais.txt");
+        this.Obter();
     }
 
     public CobraBean(String nome, String dtCaptura, String tamanho, String peso) {
@@ -36,11 +40,13 @@ public class CobraBean {
         dtCaptura = "";
         tamanho = "0";
         peso = "0";
+        Salvar();
         return "cobralista";
     }
     
     public void removeCadastrado(CobraBean c){
         cobra.remove(c);
+        Salvar();
     }
     
     public String editarCadadatarado(CobraBean c){
@@ -49,7 +55,27 @@ public class CobraBean {
         tamanho = c.getTamanho();
         peso = c.getPeso();
         cobra.remove(c);
+        Salvar();
         return "cobracad";
+    }
+    
+    private void Obter() {
+        arquivo.Ler("@cb;");
+        for (int i = 0; i < Arquivo.Objeto.size(); i++) {
+            String linha = Arquivo.Objeto.get(i);
+            String col[] = linha.split(Arquivo.Separador);
+            CobraBean novo = new CobraBean(col[1], col[2], col[3], col[4]);
+            cobra.add(novo);
+        }
+    }
+
+    private void Salvar() {
+        for (int i = 0; i < cobra.size(); i++) {
+            CobraBean c = cobra.get(i);
+            String conteudo = "@cb" + Arquivo.Separador + c.getNome() + Arquivo.Separador + c.getDtCaptura() + Arquivo.Separador + c.getTamanho() + Arquivo.Separador + c.getPeso();
+            Arquivo.dados.add(conteudo);
+        }
+        arquivo.Salvar();
     }
     
     //Getters e Setters

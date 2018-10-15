@@ -12,7 +12,7 @@
     <h:body>
         <div id="header">
             <ui:insert name="header" >
-                <ui:include src="/templates/header.xhtml" />
+                <ui:include src="/WEB-INF/templates/template.xhtml" />
             </ui:insert>
         </div>
         <b:column col-sm="9" offset-sm="3" col-md="10" offset="2">
@@ -28,14 +28,16 @@
             <div>
                 <b:panel title="Cadastar Cachorro" collapsible="false" look="info" iconAwesome="list-alt" icon-size="lg" >
                     <b:form>
-                        <b:inputText label="Nome" placeholder="Ex: Toto" type="text" tiny-screen="one-third" value="#{cachorroBean.nome}"
+                        <b:message for="nome"/>
+                        <b:message for="raca"/>
+                        <b:inputText id="nome" label="Nome" placeholder="Ex: Toto" type="text" tiny-screen="one-third" value="#{cachorroBean.nome}"
                                      required="true" requiredMessage="O campo 'Nome' é de preenchimento obrigatório."/>
-                        <b:inputText label="Raça" placeholder="Ex: Boxer" type="text" tiny-screen="one-third" value="#{cachorroBean.raca}"
+                        <b:inputText id="raca" label="Raça" placeholder="Ex: Boxer" type="text" tiny-screen="one-third" value="#{cachorroBean.raca}"
                                      required="true" requiredMessage="O campo 'Raça' é de preenchimento obrigatório."
                                      typeahead="true" typeahead-values="Boxer, Pitbull, Vira lata, Pinscher, Dachshund, Pastor-alemão"/>
                         <b:touchSpin label="Idade" col-md="3" value="#{cachorroBean.idade}" min="0" max="60" step="1" />
                         <b:commandButton iconAwesome="plus-circle" icon-size="lg" value="Incluir" class="btn btn-lg" 
-                                         title="Incluir" look="success" style="margin-top: 15px" action="#{cachorroBean.addCachorro()}"/> 
+                                     title="Incluir" look="success" style="margin-top: 15px" action="#{cachorroBean.addCachorro()}"/>   
                     </b:form>
                 </b:panel>
             </div>

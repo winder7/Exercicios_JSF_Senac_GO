@@ -25,5 +25,4 @@ public class CPFConverter implements Converter {
         return String.format("%s.%s.%s-%s", t.substring(0, 3), t.substring(3, 6),
                 t.substring(6, 9), t.substring(9));
     }
-
 }

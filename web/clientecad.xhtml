@@ -6,21 +6,20 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
-        <title>Cadastar Cobra</title>
-        <link rel="shortcut icon" href="resources/img/cobraIcon.png"/>
-        <link rel="StyleSheet" type="text/css" href="resources/css/estilos.css" media="screen" />
+        <title>Cadastar Cliente</title>
+        <link rel="shortcut icon" href="resources/img/cliente.png"/>
     </h:head>
     <h:body>
         <div id="header">
             <ui:insert name="header" >
-                <ui:include src="/templates/header.xhtml" />
+                <ui:include src="/WEB-INF/templates/template.xhtml" />
             </ui:insert>
         </div>
         <b:column col-sm="9" offset-sm="3" col-md="10" offset="2">
             <div>
                 <b:navBar style="padding: 5px" fluid="true" inverse="true">
                     <b:form>
-                        <h:graphicImage value="resources/img/cobra2.jpg" style="width: 3.8%" />
+                        <h:graphicImage value="resources/img/cliente.png" style="width: 3.1%" />
                         <b:button iconAwesome="reply" icon-size="lg" value="Voltar" class="btn btn-lg" title="Voltar ao Menu" look="danger" 
                                   href="/ExerciciosJSF/index.xhtml" style="float: right"/>
                     </b:form>
@@ -29,9 +28,9 @@
             <div>
                 <b:panel title="Cadastar Cliente" collapsible="false" look="info" iconAwesome="list-alt" icon-size="lg">
                     <b:form>
-                        <b:inputText label="Nome" type="text" value="#{clienteBean.nome}" tiny-screen="one-third" style="width: 260px"
+                        <b:inputText id="nome" label="Nome" type="text" value="#{clienteBean.nome}" tiny-screen="one-third" style="width: 260px"
                                      required="true" requiredMessage="O campo 'Nome' é de preenchimento obrigatório."/>
-                        <b:inputText label="Data de Nascimento" type="date" value="#{clienteBean.dtNacimento}" tiny-screen="one-third" style="width: 260px"
+                        <b:inputText id="dtNasc" label="Data de Nascimento" type="date" value="#{clienteBean.dtNacimento}" tiny-screen="one-third" style="width: 260px"
                                      required="true" requiredMessage="O campo 'Data de Nascimento' é de preenchimento obrigatório."/>
 
                         <b:inputText id="cpf" label="CPF" type="text" value="#{clienteBean.cpf}" tiny-screen="one-third" style="width: 260px"
@@ -39,18 +38,22 @@
                             <f:validator validatorId="cpfValidator" />
                         </b:inputText>
 
-                        <b:inputText label="RG" type="text" value="#{clienteBean.rg}" tiny-screen="one-third" style="width: 260px"
+                        <b:inputText id="rg" label="RG" type="text" value="#{clienteBean.rg}" tiny-screen="one-third" style="width: 260px"
                                      required="true" requiredMessage="O campo 'RG' é de preenchimento obrigatório.">
 
                         </b:inputText>
-                        <b:inputText label="Endereço" type="text"  value="#{clienteBean.endereco}" tiny-screen="one-third" style="width: 260px"
+                        <b:inputText id="endereco" label="Endereço" type="text"  value="#{clienteBean.endereco}" tiny-screen="one-third" style="width: 260px"
                                      required="true" requiredMessage="O campo 'Endereço' é de preenchimento obrigatório."/>
-                        <b:inputText label="Valor Gasto" mask="numeric"  value="#{clienteBean.qtdReais}" tiny-screen="one-third" style="width: 260px"
+                        <b:inputText id="valor" label="Valor Gasto" mask="numeric"  value="#{clienteBean.qtdReais}" tiny-screen="one-third" style="width: 260px"
                                      required="true" requiredMessage="O campo 'Valor Gasto' é de preenchimento obrigatório."/>
                         <b:commandButton iconAwesome="plus-circle" icon-size="lg" value="Incluir" class="btn btn-lg" 
                                          title="Incluir" look="success" style="margin-top: 15px" action="#{clienteBean.add()}"/> 
-                        <b:message for="cpf" />
-                        <b:message />
+                        <b:message for="nome"/>
+                        <b:message for="dtNasc"/>
+                        <b:message for="cpf"/>
+                        <b:message for="rg"/>
+                        <b:message for="endereco"/>
+                        <b:message for="valor"/>
                     </b:form>
                 </b:panel>
             </div>

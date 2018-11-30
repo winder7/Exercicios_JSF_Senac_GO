@@ -1,0 +1,79 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Cadastar Vendedor</title>
+        <link rel="shortcut icon" href="resources/img/vendedores.png"/>
+    </h:head>
+    <h:body>
+        <div id="header">
+            <ui:insert name="header" >
+                <ui:include src="/WEB-INF/templates/template.xhtml" />
+            </ui:insert>
+        </div>
+        <b:column col-sm="9" offset-sm="3" col-md="10" offset="2">
+            <div>
+                <b:navBar style="padding: 5px" fluid="true" inverse="true">
+                    <b:form>
+                        <h:graphicImage value="resources/img/vendedores.png" style="width: 3.1%" />
+                        <b:button iconAwesome="reply" icon-size="lg" value="Voltar" class="btn btn-lg" title="Voltar ao Menu" look="danger" 
+                                  href="/ExerciciosJSF/betaInc.xhtml" style="float: right"/>
+                    </b:form>
+                </b:navBar>
+            </div>
+            <div>
+                <b:panel title="Cadastar Vendedor" collapsible="false" look="info" iconAwesome="list-alt" icon-size="lg">
+                    <b:form>
+                        <b:inputText id="nome" label="Nome" type="text" value="#{vendedorBean.nome}" tiny-screen="one-fourth" style="width: 260px"
+                                     required="true" requiredMessage="O campo 'Nome' é de preenchimento obrigatório."/>
+                        <b:inputText id="dtNasc" label="Data de Nascimento" type="date" value="#{vendedorBean.dtNascimento}" tiny-screen="one-fourth" style="width: 260px"
+                                     required="true" requiredMessage="O campo 'Data de Nascimento' é de preenchimento obrigatório."/>
+
+                        
+                        <b:inputText id="endereco" label="Endereço" type="text"  value="#{vendedorBean.endereco}" tiny-screen="one-fourth" style="width: 260px"
+                                     required="true" requiredMessage="O campo 'Endereço' é de preenchimento obrigatório."/>
+                        
+                        <b:commandButton iconAwesome="plus-circle" icon-size="lg" value="Incluir" class="btn btn-lg" 
+                                         title="Incluir" look="success" style="margin-top: 15px" action="#{vendedorBean.add()}"/> 
+                        <b:message for="nome"/>
+                        <b:message for="dtNasc"/>
+                        <b:message for="endereco"/>
+                        <b:message for="lista"/>
+                    </b:form>
+                </b:panel>
+            </div>
+            <div>
+                <b:panel class="painel3" collapsible="false" title="Cadastrados" iconAwesome="table" icon-size="lg" look="info" rendered="true">
+                    <b:form>
+                        <b:row style="padding: 15px">
+                            <b:dataTable customLangUrl="//cdn.datatables.net/plug-ins/1.10.12/i18n/Portuguese-Brasil.json" 
+                                         class="table table-striped table-bordered" 
+                                         value = "#{vendedorBean.vendedor}"
+                                         var="lista"
+                                         style=" margin-left: auto; margin-right: auto; width: 100%; position: relative;"
+                                         responsive="true">
+
+                                <b:dataTableColumn value="#{lista.nome}" label="Nome"/>
+                                <b:dataTableColumn value="#{lista.dtNascimento}" label="Data de Nascimento"/>
+                                <b:dataTableColumn value="#{lista.endereco}" label="Endereço"/>
+                                <b:dataTableColumn value="#{lista.cliente}" label="Lista de Vendedores"/>
+                                <b:dataTableColumn label="Opções" style="width: 170px">
+                                    <h:panelGrid style="width: 170px; margin-left: auto; margin-right: auto" columns="2">
+                                        <b:commandButton iconAwesome="trash-o" value="Remover" size="sm" class="btn btn-lg"
+                                                         title="Remover Item" look="danger"  action="#{clienteBean.remover(lista)}" />
+                                        <b:commandButton iconAwesome="edit" value="Editar" size="sm" class="btn btn-lg"
+                                                         title="Editar Item" look="info"  action="#{clienteBean.editar(lista)}" />
+                                    </h:panelGrid>
+                                </b:dataTableColumn>
+                            </b:dataTable>
+                        </b:row>
+                    </b:form>
+                </b:panel>
+            </div>
+        </b:column>
+    </h:body>
+</html>
+

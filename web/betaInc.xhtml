@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Beta Inc</title>
+        <link rel="shortcut icon" href="resources/img/beta.png"/>
+    </h:head>
+    <h:body>
+        <div id="header">
+            <ui:insert name="header" >
+                <ui:include src="/WEB-INF/templates/template.xhtml" />
+            </ui:insert>
+        </div>
+        <b:column col-sm="9" offset-sm="3" col-md="10" offset="2">
+            <div>
+                <b:navBar style="padding: 5px" fluid="true" inverse="true">
+                    <b:form>
+                        <h:graphicImage value="resources/img/beta.png" style="width: 3.1%" />
+                        <b:button iconAwesome="reply" icon-size="lg" value="Voltar" class="btn btn-lg" title="Voltar ao Menu" look="danger" 
+                                  href="/ExerciciosJSF/index.xhtml" style="float: right"/>
+                    </b:form>
+                </b:navBar>
+            </div>
+            <div>
+                <b:panel title="Bem Vindo a Beta Inc" collapsible="false" look="info" iconAwesome="empire" icon-size="lg">
+                    <b:form style="text-align: center">
+                        <h:outputLabel>O que deseja cadastar?</h:outputLabel><br></br>
+                        <b:button iconAwesome="user" icon-size="lg" value="Clientes" class="btn btn-lg" title="Clientes" look="primary" 
+                                  href="/ExerciciosJSF/cliente.xhtml" style="margin-left: auto; margin-right: 5px; width: 170px"/>
+                        <b:button iconAwesome="user-secret" icon-size="lg" value="Vendedores" class="btn btn-lg" title="Vendedores" look="info" 
+                                  href="/ExerciciosJSF/vendedor.xhtml" style="margin-right: auto; margin-left: 5px; width: 170px"/>                        
+                    </b:form>
+                </b:panel>
+            </div>
+        </b:column>
+    </h:body>
+</html>
+
